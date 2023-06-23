@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing</title>
+    <style>
+        main{
+            display: flex;
+            flex-direction: row;
+            align-content: stretch;
+            justify-content: space-around;
+            padding: 2vw;
+            height: 60vh;
+        }
+        .column{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100px;
+            /* gap: 10px; */
+        }
+
+        .item{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .imgWrapper{
+            width: 50px;
+            height: 50px;
+            background-color: aqua;
+            opacity: 0.5;
+            transition: all 0.2s;
+        }
+
+        .item:hover .imgWrapper{
+            width: 100px;
+            height: 100px;
+            opacity: 1;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <h1>The Sound Book</h1>
+    <main id="Items">
+        <section id="col1" class="column">
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>The turkey</caption>
+            </div>
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>Mom</caption>
+            </div>
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>Dad</caption>
+            </div>
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>The Dog</caption>
+            </div>
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>My teacher</caption>
+            </div>
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>The elephant</caption>
+            </div>
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>The Cat</caption>
+            </div>
+        </section>
+
+        <section id="col2" class="column">
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>sat on</caption>
+            </div>
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>ate</caption>
+            </div>
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>danced with</caption>
+            </div>
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>saw</caption>
+            </div>
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>doesn't like</caption>
+            </div>
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>kissed</caption>
+            </div>
+        </section>
+
+
+        <section id="col3" class="column">
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>a funny</caption>
+            </div>
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>a scary</caption>
+            </div>
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>a goofy</caption>
+            </div>
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>a slimy</caption>
+            </div>
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>a barking</caption>
+            </div>
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>a fat</caption>
+            </div>
+        </section>
+
+        <section id="col4" class="column">
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>goat</caption>
+            </div>
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>monkey</caption>
+            </div>
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>fish</caption>
+            </div>
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>cow</caption>
+            </div>
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>frog</caption>
+            </div>
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>bug</caption>
+            </div>
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>worm</caption>
+            </div>
+        </section>
+
+        <section id="col5" class="column">
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>on the moon</caption>
+            </div>
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>on the chair</caption>
+            </div>
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>in my spaghetti</caption>
+            </div>
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>in my soup</caption>
+            </div>
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>on the grass</caption>
+            </div>
+            <div class="item">
+                <div class="imgWrapper"></div>
+                <caption>in my shoes</caption>
+            </div>
+        </section>
+    </main>
+    <button id="btn1">Pick word 1</button>
+    <button id="btn2">Pick word 2</button>
+    <button id="btn3">Pick word 3</button>
+    <button id="btn4">Pick word 4</button>
+    <button id="btn5">Pick word 5</button>
+
+    <footer>
+        <div id="displayBox">The textfield to display the story sentense.</div>
+        <button id="btnPlay">Play Sound</button>
+        <button id="btnRandom">Random</button>
+        <button id="btnReset">Reset</button>
+    </footer>
+</body>
+</html>
