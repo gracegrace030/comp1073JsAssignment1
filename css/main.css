@@ -3,11 +3,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Abel&family=Alex+Brush&family=Assistant&family=Cormorant+Garamond&family=Cormorant+Upright&family=Creepster&family=Great+Vibes&family=Italianno&family=Julee&family=Laila&family=Literata:opsz@7..72&family=Lora&family=Parisienne&family=Petit+Formal+Script&family=Playfair+Display&family=Pontano+Sans&family=Prata&family=Roboto+Mono&family=Rochester&family=Solitreo&family=Tangerine:wght@700&family=Taviraj&display=swap');
 
-@font-face {
-    font-family: ;
-    src: url();
-}
-
 html, body {
     height: 100%;
 }
@@ -44,7 +39,24 @@ main {
 aside {
     background-color: rgb(127, 255, 144);
     order: 2;
-    /* box-shadow: -10px 10px 20px black; */
+    padding: 1em;
+    
+}
+
+aside h2 {
+    font-family: 'Laila', sans-serif;
+    font-size: 30px;
+    text-align: center;
+    width: 100%;
+}
+
+.desc {
+    background-color: #def3fd;
+    padding: 1em;
+}
+
+.desc p {
+    font-family: 'Assistant', sans-serif;
 }
 
 #columns-container {
@@ -88,7 +100,6 @@ aside {
     flex-direction: column;
     align-items: center;
     padding: 1em;
-    opacity: 0.5;
 }
 
 #btn1, #btn2, #btn3, #btn4, #btn5 {
@@ -99,9 +110,9 @@ img {
     width: 25%;
 }
 
-#column1 > .item-container:first-of-type {
-    background-color: rgba(255, 255, 255, 0.724);
-    opacity: 1;
+.item-container figcaption {
+    font-family: 'Assistant', sans-serif;
+    padding: 2px;
 }
 
 button {
