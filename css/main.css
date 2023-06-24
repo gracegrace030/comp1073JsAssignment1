@@ -23,6 +23,7 @@ body {
 .main-part{    
     display: flex;
     width: 100%;
+    margin: 10px 0 10px 0;
 }
 
 h1 {
@@ -37,10 +38,9 @@ main {
 }
 
 aside {
-    background-color: rgb(127, 255, 144);
     order: 2;
     padding: 1em;
-    
+    margin: 0 15px 0 15px;
 }
 
 aside h2 {
@@ -51,18 +51,34 @@ aside h2 {
 }
 
 .desc {
-    background-color: #def3fd;
-    padding: 1em;
+    padding: 5px;
 }
 
 .desc p {
     font-family: 'Assistant', sans-serif;
 }
 
+#storyOutput {
+    background-color: rgba(207, 207, 207, 0.683);
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Assistant', sans-serif;
+    padding: 2em;
+}
+
+#asideButtons {
+    text-align: center;
+}
+
+#asideButtons button {
+    margin: 5px;
+}
+
 #columns-container {
     display: flex;
     justify-content: space-around;
     align-items: stretch;
+    margin: 0 5px 0 5px;
 }
 
 .columns {
@@ -70,7 +86,7 @@ aside h2 {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 2px 2px 15px rgb(144, 144, 144);
+    box-shadow: 5px 5px 15px rgb(144, 144, 144);
     margin: 10px;
     padding: 1em;
 }
@@ -113,6 +129,7 @@ img {
 .item-container figcaption {
     font-family: 'Assistant', sans-serif;
     padding: 2px;
+    text-align: center;
 }
 
 button {
@@ -135,4 +152,5 @@ footer {
 
 footer ul li {
     padding: 5px;
+    font-family: 'Laila', sans-serif;
 }
