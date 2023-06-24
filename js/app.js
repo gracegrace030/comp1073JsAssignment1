@@ -153,107 +153,125 @@ const storyOutput = document.getElementById("storyOutput");
 -------------------------------------------------- */
 const col1Data = {
 	order: 0,
-	items: colItems1,
+	items : colItems1,
 	images: colImage1,
 	column: column1
 }
 
 const col2Data = {
 	order: 1,
-	items: colItems2,
+	items : colItems2,
 	images: colImage2,
 	column: column2
 }
 const col3Data = {
 	order: 2,
-	items: colItems3,
+	items : colItems3,
 	images: colImage3,
 	column: column3
 }
 const col4Data = {
 	order: 3,
-	items: colItems4,
+	items : colItems4,
 	images: colImage4,
 	column: column4
 }
 const col5Data = {
 	order: 4,
-	items: colItems5,
+	items : colItems5,
 	images: colImage5,
 	column: column5
 }
 
+const colDataList = [
+	col1Data,
+	col2Data,
+	col3Data,
+	col4Data,
+	col5Data,
+]
+
 /* Story Array
 -------------------------------------------------- */
-var resultStory = ["", "", "", "", ""];
+var resultStory = ["","","","",""];
+
+
+/* Print Contents to HTML
+-------------------------------------------------- */
+
+for (let i = 0 ; i < colDataList.length; i++){
+	for (let u = 0 ; u < colDataList[i].items.length; u++){
+		let insertItemCodes = 
+		`<div class="item-container">
+			<img src="${colDataList[i].images[u]}" alt="">
+			<figcaption>${colDataList[i].items[u]}</figcaption>
+		</div>`;
+		colDataList[i].column.insertAdjacentHTML("beforeend", insertItemCodes);
+	}
+}
 
 /* Functions
 -------------------------------------------------- */
 
 // Function that select a random word from the array
-function selectRandomNum(arr) {
-	let randomNum = Math.floor(Math.random() * arr.length);
+function selectRandomNum(arr){	
+	let randomNum = Math.floor( Math.random() * arr.length );
 	return randomNum;
 }
 
 // Function that select a word and image from the array
-function selectedItem(num, obj) {
+function selectedItem(num, obj){
 	// Play sounds
 	let textToSpeak = obj.items[num];
 	speakNow(textToSpeak);
-
+	
 	// Change item css
 	let selectedItemDiv = obj.column.getElementsByClassName("item-container")[num];
-	let otherItems = obj.column.getElementsByClassName("item-container");
-
-	console.log(otherItems);
-
-	for (let g = 0; g < otherItems.length; g++) {
-			otherItems[g].style.opacity = 0.5;
-	}
-	
 	selectedItemDiv.style.opacity = 1;
-
+	
 	console.log(textToSpeak);
-	return (textToSpeak);
+	return(textToSpeak);
 }
 
-function selectedColumnActions(obj) {
+function selectedColumnActions(obj){
 	let randomNum = selectRandomNum(obj.items);
-	let randomWord = selectedItem(randomNum, obj);
-
+	let randomWord =  selectedItem(randomNum, obj);
+	
 	// Update story
 	resultStory[obj.order] = randomWord;
 	console.log(resultStory);
 	storyOutput.innerHTML = resultStory.join(" ") + ".";
 }
 
-btn1.addEventListener("click", () => {
+btn1.addEventListener("click", ()=>{
 	selectedColumnActions(col1Data);
 });
 
-btn2.addEventListener("click", () => {
+btn2.addEventListener("click", ()=>{
 	selectedColumnActions(col2Data);
 });
 
-btn3.addEventListener("click", () => {
+btn3.addEventListener("click", ()=>{
 	selectedColumnActions(col3Data);
 });
 
-btn4.addEventListener("click", () => {
+btn4.addEventListener("click", ()=>{
 	selectedColumnActions(col4Data);
 });
 
-btn5.addEventListener("click", () => {
+btn5.addEventListener("click", ()=>{
 	selectedColumnActions(col5Data);
 });
 
-btnPlay.addEventListener("click", () => {
+btnPlay.addEventListener("click", ()=>{
 	let story = storyOutput.innerHTML;
 	speakNow(story);
 });
 
-btnRandom.addEventListener("click", () => {
-	let story = storyOutput.innerHTML;
-	speakNow(story);
+btnRandom.addEventListener("click", ()=>{
+	selectedColumnActions(col1Data);
+	selectedColumnActions(col2Data);
+	selectedColumnActions(col3Data);
+	selectedColumnActions(col4Data);
+	selectedColumnActions(col5Data);
 });
