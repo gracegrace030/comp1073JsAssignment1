@@ -203,7 +203,7 @@ for (let i = 0 ; i < colDataList.length; i++){
 	for (let u = 0 ; u < colDataList[i].items.length; u++){
 		let insertItemCodes = 
 		`<div class="item-container">
-			<img src="${colDataList[i].images[u]}" alt="">
+			<img src="${colDataList[i].images[u]}" alt="${colDataList[i].items[u]}">
 			<figcaption>${colDataList[i].items[u]}</figcaption>
 		</div>`;
 		colDataList[i].column.insertAdjacentHTML("beforeend", insertItemCodes);
@@ -222,8 +222,7 @@ function selectRandomNum(arr) {
 // Function that select a word and image from the array
 function selectedItem(num, obj) {
 	// Play sounds
-	let textToSpeak = obj.items[num];
-	speakNow(textToSpeak);
+	let selectedWord = obj.items[num];
 
 	// Change item css
 	let selectedItemDiv = obj.column.getElementsByClassName("item-container")[num];
@@ -238,19 +237,34 @@ function selectedItem(num, obj) {
 	selectedItemDiv.style.opacity = 1;
 	selectedItemDiv.style.fontWeight = "bold";
 
-	console.log(textToSpeak);
-	return (textToSpeak);
+	console.log(selectedWord);
+	return (selectedWord);
 }
 
 function selectedColumnActions(obj) {
+	// Select random word
 	let randomNum = selectRandomNum(obj.items);
-	let randomWord = selectedItem(randomNum, obj);
+	let randomWord = textToSpeak = selectedItem(randomNum, obj);
+	speakNow(textToSpeak);
 
 	// Update story
 	resultStory[obj.order] = randomWord;
 	console.log(resultStory);
 	storyOutput.innerHTML = resultStory.join(" ") + ".";
 }
+
+function randomColumnsActions(obj) {
+	// Select random word
+	let randomNum = selectRandomNum(obj.items);
+	let randomWord = selectedItem(randomNum, obj);
+	// no sound
+
+	// Update story
+	resultStory[obj.order] = randomWord;
+	console.log(resultStory);
+	storyOutput.innerHTML = resultStory.join(" ") + ".";
+}
+
 
 btn1.addEventListener("click", () => {
 	selectedColumnActions(col1Data);
@@ -278,17 +292,20 @@ btnPlay.addEventListener("click", () => {
 });
 
 btnRandom.addEventListener("click", () => {
-	selectedColumnActions(col1Data);
-	selectedColumnActions(col2Data);
-	selectedColumnActions(col3Data);
-	selectedColumnActions(col4Data);
-	selectedColumnActions(col5Data);
+	randomColumnsActions(col1Data);
+	randomColumnsActions(col2Data);
+	randomColumnsActions(col3Data);
+	randomColumnsActions(col4Data);
+	randomColumnsActions(col5Data);
+	let story = storyOutput.innerHTML;
+	speakNow(story);
 });
 
 btnReset.addEventListener("click", () => {
+	resultStory = ["", "", "", "", ""];
 	storyOutput.innerHTML = "Your story goes here..";
-	let resetItems = document.getElementsByClassName("item-container");
 	
+	let resetItems = document.getElementsByClassName("item-container");
 	for (let g = 0; g < resetItems.length; g++) {
 		resetItems[g].style.opacity = 1;
 		resetItems[g].style.fontWeight = "initial";
